@@ -10,6 +10,8 @@ public class Socios {
     private String amaterno;
     private int num_documento;
     private LocalDate fecha_nacimiento;
+    private int telefono;
+    private String pais;
 
     public int getIdSocio() {
         return idSocio;
@@ -47,21 +49,38 @@ public class Socios {
     public void setFecha_nacimiento(LocalDate fecha_nacimiento) {
         this.fecha_nacimiento = fecha_nacimiento;
     }
+    public int getTelefono() {
+        return telefono;
+    }
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
+    public String getPais() {
+        return pais;
+    }
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
 
     @Override
     public String toString() {
         return "Id Socio: " + idSocio + "\n"
                 +"Nombre: " + nombre + " " + apaterno + " " + amaterno + "\n"
                 + "Documento: " + num_documento + "\n"
-                + "Fecha de nacimiento: " + fecha_nacimiento;
+                + "Fecha de nacimiento: " + fecha_nacimiento + "\n"
+                + "Teléfono: " + telefono + "\n"
+                + "Pais: " + pais;
+
     }
 
-    public Socios (int idSocio, String nombre, String apaterno, String amaterno, int num_documento, LocalDate fecha_nacimiento) {
+    public Socios (int idSocio, String nombre, String apaterno, String amaterno, int num_documento, LocalDate fecha_nacimiento, int telefono, String pais) {
         this.idSocio = ++contador;
         this.nombre = nombre;
         this.apaterno = apaterno;
         this.amaterno = amaterno;
         this.num_documento = num_documento;
         this.fecha_nacimiento = fecha_nacimiento;
+        this.telefono = telefono;
+        this.pais = pais;
     }
 }

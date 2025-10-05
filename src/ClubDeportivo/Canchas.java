@@ -73,5 +73,4 @@ public class Canchas {
         this.estado = estado;
         this.caracteristicas = caracteristicas;
     }
-
 }
