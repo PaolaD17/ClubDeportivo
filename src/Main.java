@@ -5,9 +5,9 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int opcion = 0;
+        int opcion = -1;
 
-        while (opcion != 4) {
+        while (opcion != 0) {
             System.out.println("CLUB DEPORTIVO ISLA MALA");
             System.out.println("1. Canchas");
             System.out.println("2. Socios");
@@ -19,7 +19,8 @@ public class Main {
             sc.nextLine();
             switch (opcion) {
                 case 1:
-                    while (opcion != 4) {
+                    int opcionCanchas = -1;
+                    while (opcionCanchas != 0) {
                         System.out.println("CANCHAS");
                         System.out.println("1. Ingresar una cancha");
                         System.out.println("2. Modificar una cancha");
@@ -27,9 +28,9 @@ public class Main {
                         System.out.println("4. Consultas");
                         System.out.println("0. Salir");
 
-                        opcion = sc.nextInt();
+                        opcionCanchas = sc.nextInt();
                         sc.nextLine();
-                        switch (opcion) {
+                        switch (opcionCanchas) {
                             case 1:
                                 break;
                             case 2:
@@ -37,7 +38,8 @@ public class Main {
                             case 3:
                                 break;
                             case 4:
-                                while (opcion != 4) {
+                                int opcionCanchasConsultas = -1;
+                                while (opcionCanchasConsultas != 0) {
                                     System.out.println("Consultas de canchas");
                                     System.out.println("1. Canchas por deporte");
                                     System.out.println("2. Canchas por nombre");
@@ -45,9 +47,9 @@ public class Main {
                                     System.out.println("4. Canchas por condición (cubiertas o descubiertas)");
                                     System.out.println("0. Salir");
 
-                                    opcion = sc.nextInt();
+                                    opcionCanchasConsultas = sc.nextInt();
                                     sc.nextLine();
-                                    switch (opcion) {
+                                    switch (opcionCanchasConsultas) {
                                         case 1:
                                             break;
                                         case 2:
@@ -73,16 +75,17 @@ public class Main {
                     }
                     break;
                 case 2:
-                    while (opcion != 3) {
+                    int opcionSocios = 0;
+                    while (opcionSocios != -1) {
                         System.out.println("SOCIOS");
                         System.out.println("1. Ingresar un socio");
                         System.out.println("2. Modificar un socio");
                         System.out.println("3. Eliminar un socio");
                         System.out.println("0. Salir");
 
-                        opcion = sc.nextInt();
+                        opcionSocios = sc.nextInt();
                         sc.nextLine();
-                        switch (opcion) {
+                        switch (opcionSocios) {
                             case 1:
                                 break;
                             case 2:
@@ -98,16 +101,17 @@ public class Main {
                     }
                     break;
                 case 3:
-                    while (opcion != 4) {
+                    int opcionTarifas = 0;
+                    while (opcionTarifas != -1) {
                         System.out.println("TARIFAS");
                         System.out.println("1. Ingresar una tarifa");
                         System.out.println("2. Modificar una tarifa");
                         System.out.println("3. Eliminar una tarifa");
                         System.out.println("0. Salir");
 
-                        opcion = sc.nextInt();
+                        opcionTarifas = sc.nextInt();
                         sc.nextLine();
-                        switch (opcion) {
+                        switch (opcionTarifas) {
                             case 1:
                                 break;
                             case 2:
@@ -123,7 +127,8 @@ public class Main {
                     }
                     break;
                 case 4:
-                    while (opcion != 4) {
+                    int opcionReservas = 0;
+                    while (opcionReservas != -1) {
                         System.out.println("RESERVAS");
                         System.out.println("1. Ingresar una reserva");
                         System.out.println("2. Modificar una reserva");
@@ -131,9 +136,9 @@ public class Main {
                         System.out.println("4. Consultas");
                         System.out.println("0. Salir");
 
-                        opcion = sc.nextInt();
+                        opcionReservas = sc.nextInt();
                         sc.nextLine();
-                        switch (opcion) {
+                        switch (opcionReservas) {
                             case 1:
                                 break;
                             case 2:
@@ -141,16 +146,17 @@ public class Main {
                             case 3:
                                 break;
                             case 4:
-                                while (opcion != 3) {
+                                int opcionReservasConsultas = 0;
+                                while (opcionReservasConsultas != 0) {
                                     System.out.println("Consultas de reservas");
                                     System.out.println("1. Canchas reservadas en un período de tiempo");
                                     System.out.println("2. Canchas con reservas en una fecha dada");
                                     System.out.println("3. Canchas sin reservas en una fecha dada");
                                     System.out.println("0. Salir");
 
-                                    opcion = sc.nextInt();
+                                    opcionReservasConsultas = sc.nextInt();
                                     sc.nextLine();
-                                    switch (opcion) {
+                                    switch (opcionReservasConsultas) {
                                         case 1:
                                             break;
                                         case 2:
