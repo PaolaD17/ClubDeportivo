@@ -1,5 +1,7 @@
 package ClubDeportivo;
 
+import java.util.List;
+
 public class Canchas {
     static int contador = 0;
     private int idCancha;
@@ -8,13 +10,10 @@ public class Canchas {
     private boolean cubierta;
     private int capacidad;
     private String estado;
-    private String caracteristicas;
+    private List<String> caracteristicas;
 
     public int getIdCancha() {
         return idCancha;
-    }
-    public void setIdCancha(int idCancha) {
-        this.idCancha = idCancha;
     }
     public String getNombre() {
         return nombre;
@@ -44,27 +43,32 @@ public class Canchas {
         return estado;
     }
     public void setEstado(String estado) {
-        this.estado = estado;
+        if (estado.equalsIgnoreCase("disponible") || estado.equalsIgnoreCase("reservada") || estado.equalsIgnoreCase("ocupada")) {
+            this.estado = estado.toLowerCase();
+        } else {
+            System.out.println("⚠️ Estado inválido. Debe ser disponible, reservada u ocupada.");
+        }
     }
-    public String getCaracteristicas() {
+    public List<String> getCaracteristicas() {
         return caracteristicas;
     }
-    public void setCaracteristicas(String caracteristicas) {
+    public void setCaracteristicas(List<String> caracteristicas) {
         this.caracteristicas = caracteristicas;
     }
+
 
     @Override
     public String toString() {
         return "Id Cancha: " + idCancha + "\n" +
                 "Nombre: " + nombre + "\n" +
                 "Deporte: " + deporte + "\n" +
-                "Cubierta: " + cubierta + "\n" +
+                "Cubierta: " + (cubierta ? "Sí" : "No") + "\n" +
                 "Capacidad: " + capacidad + "\n" +
                 "Estado: " + estado + "\n" +
-                "Caracteristicas: " + caracteristicas;
+                "Caracteristicas: " + String.join(", ", caracteristicas);
     }
 
-    public Canchas(int idCancha, String nombre, String deporte, boolean cubierta, int capacidad, String estado, String caracteristicas) {
+    public Canchas(String nombre, String deporte, boolean cubierta, int capacidad, String estado, List<String> caracteristicas) {
         this.idCancha = ++contador;
         this.nombre = nombre;
         this.deporte = deporte;

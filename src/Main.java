@@ -1,10 +1,13 @@
+import ClubDeportivo.Canchas;
 import java.sql.SQLOutput;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
+        List<Canchas> listaCanchas = new ArrayList<>();
         int opcion = -1;
 
         while (opcion != 0) {
@@ -32,8 +35,108 @@ public class Main {
                         sc.nextLine();
                         switch (opcionCanchas) {
                             case 1:
+                                System.out.println("--REGISTRAR CANCHAS--");
+                                System.out.println("Nombre: ");
+                                String nombre = sc.nextLine();
+
+                                System.out.println("Deporte: ");
+                                String deporte = sc.nextLine();
+
+                                System.out.println("¿Cubierta? S/N");
+                                String cubiertaStr = sc.nextLine();
+                                boolean cubierta = cubiertaStr.equalsIgnoreCase("s");
+
+                                System.out.println("Capacidad: ");
+                                int capacidad = sc.nextInt();
+                                sc.nextLine();
+
+                                System.out.println("Estado: (disponible/reservada/ocupada");
+                                String estado = sc.nextLine();
+
+                                System.out.println("Características: (separadas por coma)");
+                                String[] caracteristicasArray = sc.nextLine().split(",");
+                                List<String> caracteristicas = new ArrayList<>();
+                                for (String c : caracteristicasArray) {
+                                    caracteristicas.add(c.trim());
+                                }
+
+                                Canchas nuevaCancha = new Canchas(nombre, deporte, cubierta, capacidad, estado, caracteristicas);
+                                listaCanchas.add(nuevaCancha);
+
+                                System.out.println("Cancha registrada con éxito!");
+                                System.out.println(nuevaCancha);
                                 break;
                             case 2:
+                                System.out.println("--MODIFICAR CANCHAS--");
+                                System.out.println("Canchas disponibles:");
+                                for (Canchas c : listaCanchas) {
+                                    System.out.println("ID: " + c.getIdCancha() + " - " + c.getNombre());
+                                }
+
+                                System.out.print("Ingrese el ID de la cancha a modificar: ");
+                                int idModificar = sc.nextInt();
+                                sc.nextLine();
+
+                                Canchas canchaAModificar = null;
+                                for (Canchas c : listaCanchas) {
+                                    if (c.getIdCancha() == idModificar) {
+                                        canchaAModificar = c;
+                                        break;
+                                    }
+                                }
+
+                                if (canchaAModificar == null) {
+                                    System.out.println("No se encontró una cancha con ese ID.");
+                                    break;
+                                }
+
+                                System.out.println("Cancha actual:");
+                                System.out.println(canchaAModificar);
+
+                                System.out.print("Nuevo nombre (enter para mantener): ");
+                                String nuevoNombre = sc.nextLine();
+                                if (!nuevoNombre.isBlank()){
+                                    canchaAModificar.setNombre(nuevoNombre);
+                                }
+
+                                System.out.print("Nuevo deporte (enter para mantener): ");
+                                String nuevoDeporte = sc.nextLine();
+                                if (!nuevoDeporte.isBlank()){
+                                    canchaAModificar.setDeporte(nuevoDeporte);
+                                }
+
+                                System.out.print("¿Es cubierta? (s/n, enter para mantener): ");
+                                String cubiertaMod = sc.nextLine();
+                                if (cubiertaMod.equalsIgnoreCase("s")){
+                                    canchaAModificar.setCubierta(true);
+                                }else if (cubiertaMod.equalsIgnoreCase("n")){
+                                    canchaAModificar.setCubierta(false);
+                                }
+
+                                System.out.print("Nueva capacidad (enter para mantener): ");
+                                String capacidadStr = sc.nextLine();
+                                if (!capacidadStr.isBlank()){
+                                    canchaAModificar.setCapacidad(Integer.parseInt(capacidadStr));
+                                }
+
+                                System.out.print("Nuevo estado (disponible/reservada/ocupada, enter para mantener): ");
+                                String nuevoEstado = sc.nextLine();
+                                if (!nuevoEstado.isBlank()){
+                                    canchaAModificar.setEstado(nuevoEstado);
+                                }
+
+                                System.out.print("Nuevas características (separadas por coma, enter para mantener): ");
+                                String nuevasCaract = sc.nextLine();
+                                if (!nuevasCaract.isBlank()) {
+                                    String[] caractArray = nuevasCaract.split(",");
+                                    List<String> caractList = new ArrayList<>();
+                                    for (String c : caractArray) {
+                                        caractList.add(c.trim());
+                                    }
+                                    canchaAModificar.setCaracteristicas(caractList);
+                                }
+
+                                System.out.println("Cancha modificada con éxito.");
                                 break;
                             case 3:
                                 break;
