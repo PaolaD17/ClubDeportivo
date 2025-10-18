@@ -4,19 +4,19 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
-public class Reservas {
+public class Reserva {
     static int contador = 0;
     private int idReserva;
-    private Socios socio;
-    private Canchas cancha;
+    private Socio socio;
+    private Cancha cancha;
     private LocalDate fecha_reserva;
     private LocalDate fecha_partido;
     private LocalTime hora_partido;
     private double duracion_partido;
     private boolean pagoTotal;
     private String observaciones;
-    private List<ServiciosExtras> extras;
-    private Tarifas tarifaAplicada;
+    private List<ServicioExtra> extras;
+    private Tarifa tarifaAplicada;
 
     public int getIdReserva() {
         return idReserva;
@@ -24,16 +24,16 @@ public class Reservas {
     public void setIdReserva(int idReserva) {
         this.idReserva = idReserva;
     }
-    public Socios getSocio() {
+    public Socio getSocio() {
         return socio;
     }
-    public void setSocio(Socios socio) {
+    public void setSocio(Socio socio) {
         this.socio = socio;
     }
-    public Canchas getCancha() {
+    public Cancha getCancha() {
         return cancha;
     }
-    public void setCancha(Canchas cancha) {
+    public void setCancha(Cancha cancha) {
         this.cancha = cancha;
     }
     public LocalDate getFecha_reserva() {
@@ -72,16 +72,16 @@ public class Reservas {
     public void setObservaciones(String observaciones) {
         this.observaciones = observaciones;
     }
-    public List<ServiciosExtras> getExtras() {
+    public List<ServicioExtra> getExtras() {
         return extras;
     }
-    public void setExtras(List<ServiciosExtras> extras) {
+    public void setExtras(List<ServicioExtra> extras) {
         this.extras = extras;
     }
-    public Tarifas getTarifaAplicada() {
+    public Tarifa getTarifaAplicada() {
         return tarifaAplicada;
     }
-    public void setTarifaAplicada(Tarifas tarifaAplicada) {
+    public void setTarifaAplicada(Tarifa tarifaAplicada) {
         this.tarifaAplicada = tarifaAplicada;
     }
 
@@ -100,7 +100,7 @@ public class Reservas {
                 "Tarifa aplicada: " +  tarifaAplicada;
     }
 
-    public Reservas(int idReserva, Socios socio, Canchas cancha, LocalDate fecha_reserva, LocalDate fecha_partido, LocalTime hora_partido, double duracion_partido, boolean pagoTotal, String observaciones, List<ServiciosExtras> extras, Tarifas tarifaAplicada) {
+    public Reserva(int idReserva, Socio socio, Cancha cancha, LocalDate fecha_reserva, LocalDate fecha_partido, LocalTime hora_partido, double duracion_partido, boolean pagoTotal, String observaciones, List<ServicioExtra> extras, Tarifa tarifaAplicada) {
         this.idReserva = ++contador;
         this.socio = socio;
         this.cancha = cancha;

@@ -2,7 +2,7 @@ package ClubDeportivo;
 
 import java.util.List;
 
-public class Canchas {
+public class Cancha {
     static int contador = 0;
     private int idCancha;
     private String nombre;
@@ -68,7 +68,7 @@ public class Canchas {
                 "Caracteristicas: " + String.join(", ", caracteristicas);
     }
 
-    public Canchas(String nombre, String deporte, boolean cubierta, int capacidad, String estado, List<String> caracteristicas) {
+    public Cancha(String nombre, String deporte, boolean cubierta, int capacidad, String estado, List<String> caracteristicas) {
         this.idCancha = ++contador;
         this.nombre = nombre;
         this.deporte = deporte;

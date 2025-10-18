@@ -1,6 +1,6 @@
 package ClubDeportivo;
 
-public class ServiciosExtras {
+public class ServicioExtra {
     private String descripcion;
     private double costo;
 
@@ -23,7 +23,7 @@ public class ServiciosExtras {
                 ", Costo: " + costo;
     }
 
-    public ServiciosExtras(String descripcion, double costo) {
+    public ServicioExtra(String descripcion, double costo) {
         this.descripcion = descripcion;
         this.costo = costo;
     }

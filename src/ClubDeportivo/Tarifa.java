@@ -1,4 +1,4 @@
 package ClubDeportivo;
 
-public class Tarifas {
+public class Tarifa {
 }

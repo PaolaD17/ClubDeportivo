@@ -2,7 +2,7 @@ package ClubDeportivo;
 
 import java.time.LocalDate;
 
-public class Socios {
+public class Socio {
     static int contador = 0;
     private int idSocio;
     private String nombre;
@@ -73,7 +73,7 @@ public class Socios {
 
     }
 
-    public Socios (int idSocio, String nombre, String apaterno, String amaterno, int num_documento, LocalDate fecha_nacimiento, int telefono, String pais) {
+    public Socio(int idSocio, String nombre, String apaterno, String amaterno, int num_documento, LocalDate fecha_nacimiento, int telefono, String pais) {
         this.idSocio = ++contador;
         this.nombre = nombre;
         this.apaterno = apaterno;
